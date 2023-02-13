@@ -21,12 +21,12 @@ typedef struct str_node
 
 phone enter_phone_menu();
 void add_phone (node **head);
-void print_phone (const node *head);
-void remove_phone (const node *head);
-void edit_phone_remain(const node *head);
-void find_products_by_price(const node *head);
+void print_phone (node* const head);
+void remove_phone (node* const head);
+void edit_phone_remain(node* const head);
+void find_products_by_price(node* const head);
 
-node* find_last_node (const node *head);
+node* find_last_node (node* const head);
 node *create_node(const phone data);
 void remove_node(node *remove_node);
 void add_tail (node ** head, const phone data);

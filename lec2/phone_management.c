@@ -47,7 +47,7 @@ void add_phone (node **head)
     }
 }
 
-void print_phone (const node *head)
+void print_phone (node* const head)
 {
     int choice;
     input_int("Enter your choice: 1. Ascending order, 2. Descending order", &choice);
@@ -67,25 +67,25 @@ void print_phone (const node *head)
     return;
 }
 
-void remove_phone(const node *head)
+void remove_phone (node* const head)
 {
     int phone_id;
     input_int("Enter phone ID: ", &phone_id);
     remove_node(find_node_by_ID(head, phone_id));
 }
 
-void edit_phone_remain(const node *head)
+void edit_phone_remain(node* const head)
 {
     int phone_id;
     input_int("Enter phone ID: ", &phone_id);
     int new_remain;
     input_int("Enter phone remains: ", &new_remain);
 
-    phone* found_phone = find_node_by_ID(head, phone_id);
-    found_phone->remain = new_remain;
+    node* found_phone = find_node_by_ID(head, phone_id);
+    found_phone->data.remain = new_remain;
 }
 
-void find_products_by_price(const node *head)
+void find_products_by_price(node* const head)
 {
     int price;
     input_int("Enter phone price: ", &price);
@@ -120,7 +120,7 @@ void print_node(node *p)
     printf("Phone info: 1. Product ID %d, 2. Product name %s, 3. Price %s, 4. Remaining %s\n", data.product_id, data.product_name, data.price, data.remain);
 }
 
-node* find_last_node (const node *head)
+node* find_last_node (node* const head)
 {
     if (is_empty(head)) return NULL;
     node *cur_node = head;
@@ -137,6 +137,7 @@ node *create_node(const phone data)
     phone_node->data = data;
     phone_node->next = NULL;
     phone_node->previous = NULL;
+    return phone_node;
 }
 
 void remove_node(node *remove_node)
